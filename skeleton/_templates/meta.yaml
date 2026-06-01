@@ -1,0 +1,44 @@
+# Template: sources/<src-id>/meta.yaml
+id: src-YYYYMMDD-<slug>
+url: https://...
+canonical_url: https://... # без utm_*, fbclid, ref= та інших трекерів
+type: article | report | whitepaper | blog | docs | youtube | podcast | forum | thread | dataset | book | case-study
+title: ''
+authors: [] # [{name: "...", role: "..."}]
+published: YYYY-MM-DD | null
+fetched_at: YYYY-MM-DDTHH:MM:SSZ
+language: uk | en | ...
+fetch_method: webfetch | manual-paste | yt-transcript | pdf-extract
+storage:
+  original: original.html | original.pdf | transcript.txt
+  bytes: 0
+
+source_class: external   # external | seed | operator-verified
+relevance: 0-5 # §2
+quality: 0-10 # §3 — АБО 'trusted' для source_class: operator-verified (не скориться, §1.2)
+quality_breakdown:        # лише для external; для operator-verified опускаємо
+  primary_source: true/false        # +2
+  practitioner_author: true/false   # +1
+  concrete_numbers: true/false      # +2 (CAC/ROAS/CR/CTR/LTV/retention, вибірка, період)
+  methodology_shown: true/false     # +1
+  anti_survivorship: true/false     # +1 (показано і провали, не лише переможців)
+  freshness_appropriate: true/false # +1
+  independent_confirmation: true/false # +1
+  substance_over_fluff: true/false  # +1
+
+bias:                     # прапорці ріжуть стелю довіри claim'ів (§3)
+  guru: false             # автор продає курс/наставництво
+  agency_pitch: false     # агенція/фрилансер продає послуги цим матеріалом
+  platform: false         # порада від платформи/рекламної мережі
+  survivorship: false     # лише успішні кейси, без бази тих, у кого не спрацювало
+  affiliate: false        # партнерські посилання / спонсорство інструмента
+  notes: ''
+
+extracted:
+  notes: [] # [n-slug, ...]
+  claims: [] # [c-NNNN, ...]
+  contradictions: []
+  outbound_links_tracked: 0
+
+status: processed | borderline | rejected
+reject_reason: null
